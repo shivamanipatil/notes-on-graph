@@ -38,8 +38,19 @@ const userSchema = new mongoose.Schema({
             required: true
         }
     }],
-    favouriteSongs: [String],
-    favouriteArtists: [String]
+    favouriteSongs: [{
+        'track': {
+            type: String
+        }, 
+        'artist': {
+            type: String
+        }
+    }],
+    favouriteArtists: [{
+        'artist': {
+            type: String
+        }
+    }]
 }, {
     timestamps: true
 })
