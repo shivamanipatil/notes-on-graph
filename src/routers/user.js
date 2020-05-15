@@ -5,7 +5,7 @@ const auth = require('../middleware/auth')
 
 //read profile
 router.get('/users/me', auth, async (req, res) => {
-    res.send(req.user)    
+    res.json(req.user)    
 })
 
 //Register new users

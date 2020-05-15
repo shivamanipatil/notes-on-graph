@@ -34,7 +34,7 @@ router.get('/me/discoverSongs', auth, async (req, res) => {
                 'artist': response.data.similartracks.track[0].artist.name
             })
         }
-        res.send(tracks)
+        res.json(tracks)
     } catch (error) {
         res.status(400).send()   
     }
