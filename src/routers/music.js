@@ -19,7 +19,7 @@ router.get('/music/search', auth, async (req, res) => {
             throw new Error ("Please provide track.")
         }
         payload['track'] = req.query.track
-        payload['limit'] = req.query.limit? req.query.limit: DEFAULT_LIMIT
+        payload['limit'] = req.query.limit || DEFAULT_LIMIT
         payload['method'] = 'track.Search'
         
         const response = await axios({
@@ -46,7 +46,7 @@ router.post('/music/like/track', auth, async (req, res) => {
             throw new Error ("Please provide track.")
         }
         payload['track'] = req.query.track
-        payload['limit'] = req.query.limit? req.query.limit: DEFAULT_LIMIT
+        payload['limit'] = req.query.limit || DEFAULT_LIMIT
         payload['method'] = 'track.Search'
         
         const response = await axios({
@@ -80,7 +80,7 @@ router.post('/music/like/artist', auth, async (req, res) => {
             throw new Error ("Please provide track.")
         }
         payload['artist'] = req.query.artist
-        payload['limit'] = req.query.limit? req.query.limit: DEFAULT_LIMIT
+        payload['limit'] = req.query.limit || DEFAULT_LIMIT
         payload['method'] = 'artist.Search'
         
         const response = await axios({
@@ -126,6 +126,49 @@ router.delete('/music/unlike/artist/:id', auth, async (req, res) => {
     } catch(error) {
         res.status(500).send(error)
     }  
+})
+
+// get popular music tags
+router.get('/tags', auth, async (req, res) => {
+    try {
+        payload['method'] = 'tag.getTopTags'
+        const response = await axios({
+            method: 'get',
+            url: URL,
+            params: payload,
+            headers: {'user-agent': 'q1ra'}
+        })
+        //console.log(response.data.toptags)
+        const tags = response.data.toptags.tag.map((tag) => tag.name)
+        res.send(tags)
+    } catch(e) {
+        res.status(404).send(e)
+    }    
+})
+
+// get songs from tag
+router.get('/tags/:tag', auth, async (req, res) => {
+    try {
+        payload['limit'] = req.query.limit || DEFAULT_LIMIT
+        payload['method'] = 'tag.getTopTracks'
+        payload['tag'] = req.params.tag
+        const response = await axios({
+            method: 'get',
+            url: URL,
+            params: payload,
+            headers: {'user-agent': 'q1ra'}
+        })
+        console.log(response.data.tracks.track)
+        const songs = response.data.tracks.track.map((tag) => {
+            return {
+                name: tag.name,
+                artist: tag.artist.name
+            }
+        })
+        res.send(songs)
+    } catch(e) {
+        res.status(404).send(e)
+    }   
 })
 
 

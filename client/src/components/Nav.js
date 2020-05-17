@@ -11,17 +11,17 @@ function Nav() {
         <nav>
             <h3>Logo</h3>
             <ul className="nav-links">
-                <Link style={navStyle} to='/'>
+                <Link style={navStyle} to='/home'>
                     <li>Home</li>
-                </Link>
-                <Link style={navStyle} to='/login'>
-                    <li>Log in</li> 
                 </Link>
                 <Link style={navStyle} to='/discover'>
                     <li>Discover</li>
                 </Link>
                 <Link style={navStyle} to='/profile'>
                     <li>Profile</li>
+                </Link>
+                <Link style={navStyle} to='/logout'>
+                    <li>Log out</li> 
                 </Link>
             </ul>
         </nav>
