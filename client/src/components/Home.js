@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import discover from '../backend-requests/discoverSongs'
+import getTopTags from '../backend-requests/getTopTags';
+import {Link} from 'react-router-dom';
 
-function Discover() {
+const Welcome = () => {
     
     useEffect(() => {
         fetchItems();
@@ -9,19 +10,19 @@ function Discover() {
     
     const [items, setItems] = useState([]); 
     const fetchItems = async () => {
-        const data = await discover();
+        const data = await getTopTags();
         setItems(data);
     };
     return(
       <div>
-        <h1>Songs found for you </h1>
+        <h1>Tops tags in world</h1>
         {items.map(item => (
             <h3>
-                {item.name}
+                <Link to={`/songs/${item}`}>{item}</Link>
             </h3>
         )) }
       </div>
     );
 }
 
-export default Discover;
+export default Welcome;

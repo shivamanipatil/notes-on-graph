@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {getJWT} from '../helpers/getJwt';
 
 const discover = async () => {
     const url = '/me/discoverSongs'
@@ -6,7 +7,7 @@ const discover = async () => {
         url,
         method: 'GET',
         headers: {
-          'Authorization': "Bearer "+ localStorage.getItem('userInfo')
+          'Authorization': "Bearer "+ getJWT()
         }
     });
     return a.data;

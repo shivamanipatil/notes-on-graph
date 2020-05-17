@@ -3,7 +3,7 @@ import '../App.css';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 
-function Login(props) {
+const Login = (props) => {
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -43,7 +43,7 @@ function Login(props) {
       props.history.push('/Login');
       alert('Incorrect login details!')
     }
-}
+  }
   
     return(
       <div>
