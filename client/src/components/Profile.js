@@ -14,8 +14,8 @@ function Profile() {
     
     return(
         <div>
-        <h1>{user.name}</h1>
-        <h1>{user.email}</h1>
+            <h2>{user.name}</h2>
+            <h2>{user.email}</h2>
             <div>
                 <h1>Favourite Artists</h1>
                 {!user.empty?

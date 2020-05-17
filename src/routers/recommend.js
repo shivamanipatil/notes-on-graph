@@ -20,21 +20,28 @@ router.get('/me/discoverSongs', auth, async (req, res) => {
             payload['method'] = 'track.getSimilar'
             payload['artist'] = song.artist
             payload['track'] = song.track
-            payload['limit'] = 1
-            console.log(song.track, song.artist)
+            payload['limit'] = 5
             const response = await axios({
                 method: 'get',
                 url: URL,
                 params: payload,
                 headers: {'user-agent': 'q1ra'}
             })
+            //console.log(response.data.similartracks.track)
+            // tracks.push({
+            //     'name': response.data.similartracks.track[0].name,
+            //     'artist': response.data.similartracks.track[0].artist.name
+            // })
             console.log(response.data.similartracks.track)
-            tracks.push({
-                'name': response.data.similartracks.track[0].name,
-                'artist': response.data.similartracks.track[0].artist.name
-            })
+            response.data.similartracks.track.map((track => {
+                tracks.push({
+                    'name': track.name,
+                    'artist': track.artist.name
+                })
+            }))
+            
         }
-        res.json(tracks)
+        res.send(tracks)
     } catch (error) {
         res.status(400).send()   
     }

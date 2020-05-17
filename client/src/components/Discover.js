@@ -15,10 +15,11 @@ function Discover() {
     };
     return(
       <div>
+        <h1>Songs found for you </h1>
         {items.map(item => (
-            <h2>
+            <h3>
                 {item.name}
-            </h2>
+            </h3>
         )) }
       </div>
     );
