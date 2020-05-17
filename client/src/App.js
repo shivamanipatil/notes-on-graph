@@ -4,7 +4,8 @@ import About from './components/Discover';
 import Login from './components/Login';
 import Nav from "./components/Nav";
 import Profile from "./components/Profile"
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import AuthComponent from './components/AuthComponent';
 
 
 class App extends React.Component {
@@ -16,18 +17,16 @@ class App extends React.Component {
   }
   render() {
     return(
-      <Router>
-        <div className="App">
-          <Nav />
+      <BrowserRouter>      
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/discover" component={About} />
             <Route path="/login" component={Login} />
-            <Route path="/profile" component={Profile} />
+            <AuthComponent>
+              <Route path="/discover" component={About} />
+              <Route path="/profile" component={Profile} />
+            </AuthComponent>
           </Switch>
- 
-        </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }
@@ -35,6 +34,7 @@ class App extends React.Component {
 const Home = () => (
   <div>
     <h1>Home</h1>
+    <h2>Welcome to notes on graph</h2>
   </div>
 );
 

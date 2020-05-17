@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import profile from '../backend-requests/getProfile';
+import {getJWT} from '../helpers/getJwt'
 
 function Profile() {
         
@@ -8,7 +9,8 @@ function Profile() {
     }, []);
     const [user, setUser] = useState({empty: true});
     const getResult = async () => {
-        const result = await profile();
+        const jwt = getJWT();
+        const result = await profile(jwt);
         setUser(result);
     };
     
