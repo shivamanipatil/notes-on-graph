@@ -53,7 +53,7 @@ router.get('/recommend/artists', auth, async (req, res) => {
         if(!req.query.artist) {
             throw new Error ("Please provide artist name.")
         }
-            
+        
         payload['artist'] = req.query.artist
         payload['method'] = 'artist.getSimilar'
         payload['limit'] = req.query.limit? req.query.limit: DEFAULT_LIMIT

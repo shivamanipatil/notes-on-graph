@@ -10,6 +10,8 @@ import Welcome from './components/Welcome';
 import Home from './components/Home';
 import Logout from './components/Logout';
 import SongsFromTag from './components/SongsFromTag';
+import SearchArtist from './components/Search';
+import SimilarArtist from './components/SimilarArtist';
 
 
 class App extends React.Component {
@@ -31,7 +33,9 @@ class App extends React.Component {
               <Route path="/discover" component={About} />
               <Route path="/profile" component={Profile} />
               <Route path="/logout" component={Logout} />
+              <Route path="/search/artist" component={SearchArtist} />
               <Route path="/songs/:tag" component={SongsFromTag} />
+              <Route path="/artist" component={SimilarArtist} />
             </AuthComponent>
           </Switch>
       </BrowserRouter>
