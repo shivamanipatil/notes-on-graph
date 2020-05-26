@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import About from './components/Discover';
 import Login from './components/Login';
 import Nav from "./components/Nav";
 import Profile from "./components/Profile"
@@ -12,6 +11,7 @@ import Logout from './components/Logout';
 import SongsFromTag from './components/SongsFromTag';
 import SearchArtist from './components/Search';
 import SimilarArtist from './components/SimilarArtist';
+import Discover from './components/Discover';
 
 
 class App extends React.Component {
@@ -30,7 +30,7 @@ class App extends React.Component {
             <AuthComponent>
               <Nav />
               <Route path="/home" component={Home} />
-              <Route path="/discover" component={About} />
+              <Route path="/discover" component={Discover} />
               <Route path="/profile" component={Profile} />
               <Route path="/logout" component={Logout} />
               <Route path="/search/artist" component={SearchArtist} />

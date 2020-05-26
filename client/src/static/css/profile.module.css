@@ -29,6 +29,14 @@
     
 }
 
+.unlike {
+    float: right;
+}
+
+.unlike:hover {
+    cursor: cell;
+}
+
 .favs {
     background-color: white;
 }

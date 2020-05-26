@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import songsFromTag from '../backend-requests/songFromTags';
-import {Link} from 'react-router-dom';
 import styles from '../static/css/songtag.module.css';
 
 const SongsFromTag = ({match}) => {
@@ -20,7 +19,7 @@ const SongsFromTag = ({match}) => {
         <h1 className={styles.fontClassh1}>Songs for {match.params.tag}</h1>
         {items.map(item => (
             <h3 className={styles.fontClassh3}>
-                {item.name} by {item.artist}
+                {item.name} <br/> - <span className={styles.spanClass}>{item.artist}</span>
             </h3>
         )) }
       </div>

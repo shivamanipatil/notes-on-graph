@@ -16,6 +16,7 @@ const URL = 'http://ws.audioscrobbler.com/2.0/'
 router.get('/me/discoverSongs', auth, async (req, res) => {
     try {
         const tracks = []
+        console.log('heelo')
         for(const song of req.user.favouriteSongs) {
             payload['method'] = 'track.getSimilar'
             payload['artist'] = song.artist

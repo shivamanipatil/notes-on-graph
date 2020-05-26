@@ -5,11 +5,16 @@ import { Link } from 'react-router-dom';
 function Nav() {
     const navStyle = {
         'color': 'white',
-        'text-decoration': 'none',    
+        'text-decoration': 'none',   
     };
+    const classH3 = {
+        'font-weigt': 100,
+        'font-size': '8vh',
+        'font-family': 'Roboto'
+    }
     return(
         <nav>
-            <h3>Notes on graph</h3>
+            <h3 style={classH3}>Notes on graph</h3>
             <ul className="nav-links">
                 <Link style={navStyle} to='/home'>
                     <li>Home</li>

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
 import similarArtist from '../backend-requests/similarArtists';
 import queryString from 'query-string';
+import styles from '../static/css/similarartist.module.css';
 
 function Tree({ items, depth = 0 }) {
   // our base case, if we have no items, render nothing.
@@ -37,7 +37,7 @@ function Tree({ items, depth = 0 }) {
   return artist.map(item => (
       <React.Fragment key={item.artist}>
         <div style={{ paddingLeft: depth * 25 }}>  
-          <p style={{fontSize: 20}}>{item.artist}</p>
+          <p className={styles.fontClassh3}>{item.artist}</p>
         </div>
         {/* And here's the recursion! */}
           <Tree items={item.children} depth={depth + 1} />
@@ -64,7 +64,7 @@ const SimilarArtist = ({location}) => {
       setItems(newData);
   };
   return (
-    <div>
+    <div className={styles.divClass}>
       {items.length > 0 ?
         <Tree items={items} depth={0} />
         : null

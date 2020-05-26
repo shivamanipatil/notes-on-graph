@@ -18,8 +18,8 @@ const Welcome = () => {
       <div className={styles.divClass}>
         <h1 className={styles.fontClassh1}>Tops tags in world</h1>
         {items.map(item => (
-            <h3>
-                <Link to={`/songs/${item}`} className={styles.fontClassh3}>{item}</Link>
+            <h3 className={styles.fontClassh3}>
+                <Link to={`/songs/${item}`} style={{'text-decoration': 'none'}}>{item}</Link>
             </h3>
         )) }
       </div>

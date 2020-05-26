@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import discover from '../backend-requests/likeSong';
-import likeSong from '../backend-requests/discoverSongs';
+import discover from '../backend-requests/discoverSongs';
+import styles from '../static/css/discover.module.css';
+import likeSong from '../backend-requests/likesong';
 
 
 function Discover() {
@@ -14,21 +15,22 @@ function Discover() {
         const data = await discover();
         setItems(data);
     };
-    const like = async (track) => {
+    
+    const likesong = (name) => {
         try {
-            await likeSong(track);
-            alert('Song liked')
+            console.log(name);
+            likeSong(name);
+            alert('Liked')
         } catch(e) {
-            alert('Song not found')
+            console.log('Could not like');   
         }
-    }
+    };
     return(
       <div>
-        <h4>Songs found for you </h4>
-        <p>Click to like the song</p>
+        <h1 className={styles.fontClassh1}>Songs found for you </h1>
         {items.map(item => (
-            <h3 onClick={() => like(item.name)}>
-                {item.name} 
+            <h3 className={styles.fontClassh3}>
+                {item.name} <span onClick={(e) => {likesong(item.name)}}  className={styles.like}>&#128156;</span>
             </h3>
         )) }
       </div>

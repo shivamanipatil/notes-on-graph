@@ -56,6 +56,7 @@ router.post('/music/like/track', auth, async (req, res) => {
             headers: {'user-agent': 'q1ra'}
         })
         const tracks = response.data.results.trackmatches.track.map((track) => {
+            console.log(track.artist, track.name)
             return {
                 'artist': track.artist,
                 'track': track.name
@@ -140,7 +141,7 @@ router.get('/tags', auth, async (req, res) => {
         })
         //console.log(response.data.toptags)
         const tags = response.data.toptags.tag.map((tag) => tag.name)
-        res.send(tags.slice(0, 10))
+        res.send(tags)
     } catch(e) {
         res.status(404).send(e)
     }    

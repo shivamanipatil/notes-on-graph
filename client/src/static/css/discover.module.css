@@ -11,7 +11,12 @@
 .fontClassh1 {
     font-weight: 400;
     font-size: 4vw;
-    margin-bottom: 3vh;   
+    margin: 3vh;   
+    font-family: "Roboto", sans-serif;
+}
+
+.like {
+    float: right;   
 }
 
 .fontClassh3 {
