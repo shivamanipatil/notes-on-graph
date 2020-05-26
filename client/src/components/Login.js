@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import '../App.css';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
+import styles from '../static/css/login.module.css';
 
 const Login = (props) => {
   
@@ -46,8 +47,8 @@ const Login = (props) => {
   }
   
     return(
-      <div>
-        <h2>Log in</h2>
+      <div className={styles.login_page}>
+        <div className={styles.form}>
         <form onSubmit={submit}>
           <div className="form-input">
             <input 
@@ -69,6 +70,7 @@ const Login = (props) => {
           </div>
           <button>Log in</button>
         </form>
+        </div>
       </div>
     );
 }

@@ -7,7 +7,7 @@ function Tree({ items, depth = 0 }) {
   // our base case, if we have no items, render nothing.
   const [artist, setArtist] = useState([]);
   useEffect(() => {
-    if(depth === 1) {
+    if(depth === 2) {
       setArtist(items);
     } else {
       fetchItems();

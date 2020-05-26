@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+.divClass {
+    background-color: white;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+    padding: 5vw;
+    font-family: "Roboto", sans-serif;
+}
+.fontClassh1 {
+    font-weight: 400;
+    font-size: 4vw;   
+}
+
+.fontClassh3 {
+    font-weight: 500;
+    margin-left: 6vh;
+    font-size: 4vh;
+    text-decoration: none;
+}
+

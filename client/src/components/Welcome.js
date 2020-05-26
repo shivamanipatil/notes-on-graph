@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import {withRouter} from 'react-router-dom';
+import styles from '../static/css/welcome.module.css';
 
 const Welcome = (props) => {
     return(
-        <div>
-            <h1>Welcome Home</h1>
-            <h2>Welcome to notes on graph</h2>
-            <button onClick={() => props.history.push('/login')}>Login</button>
+        <div className={styles.divClass}>
+            <h1 className={styles.heading}>NOTES ON GRAPH</h1>
+            <button className={styles.button} onClick={() => props.history.push('/login')}>
+                <span>Login</span>
+            </button>
         </div>  
     );    
 };

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import songsFromTag from '../backend-requests/songFromTags';
 import {Link} from 'react-router-dom';
+import styles from '../static/css/songtag.module.css';
 
 const SongsFromTag = ({match}) => {
     
@@ -15,10 +16,10 @@ const SongsFromTag = ({match}) => {
         setItems(data);
     };
     return(
-      <div>
-        <h1>Songs for this {match.params.tag}</h1>
+      <div className={styles.divClass}>
+        <h1 className={styles.fontClassh1}>Songs for {match.params.tag}</h1>
         {items.map(item => (
-            <h3>
+            <h3 className={styles.fontClassh3}>
                 {item.name} by {item.artist}
             </h3>
         )) }

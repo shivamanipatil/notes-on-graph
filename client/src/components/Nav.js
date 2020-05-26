@@ -9,7 +9,7 @@ function Nav() {
     };
     return(
         <nav>
-            <h3>Logo</h3>
+            <h3>Notes on graph</h3>
             <ul className="nav-links">
                 <Link style={navStyle} to='/home'>
                     <li>Home</li>

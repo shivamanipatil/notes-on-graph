@@ -140,7 +140,7 @@ router.get('/tags', auth, async (req, res) => {
         })
         //console.log(response.data.toptags)
         const tags = response.data.toptags.tag.map((tag) => tag.name)
-        res.send(tags)
+        res.send(tags.slice(0, 10))
     } catch(e) {
         res.status(404).send(e)
     }    

@@ -42,8 +42,9 @@ nav{
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: rgb(77, 79, 212);
+  background: red;
   color: white;
+  font-size: 3vh;
 }
 
 .nav-links{
