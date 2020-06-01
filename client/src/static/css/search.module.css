@@ -7,6 +7,9 @@
     overflow:hidden;
     padding: 5vw;
     font-family: "Roboto", sans-serif;
+    position: relative;
+    margin-bottom: 0.5vh;
+    left: 10%;  
 }
 .fontClassh1 {
     font-weight: 400;

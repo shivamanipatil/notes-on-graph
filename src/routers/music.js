@@ -39,6 +39,34 @@ router.get('/music/search', auth, async (req, res) => {
     }
 })
 
+//search for a artist 
+router.get('/artist/search', auth, async (req, res) => {
+    try {
+        if(!req.query.artist) {
+            throw new Error ("Please provide artist.")
+        }
+        payload['artist'] = req.query.artist
+        payload['limit'] = req.query.limit || DEFAULT_LIMIT
+        payload['method'] = 'artist.search'
+        
+        const response = await axios({
+            method: 'get',
+            url: URL,
+            params: payload,
+            headers: {'user-agent': 'q1ra'}
+        })
+        console.log(response.data.results.artistmatches.artist)
+        //res.send()
+        res.send(response.data.results.artistmatches.artist.map((artist) => {
+            return {
+                'artist': artist.name,
+            }
+        }))
+    } catch(e) {
+        res.status(404).send(e)
+    }
+})
+
 //like a track
 router.post('/music/like/track', auth, async (req, res) => {
     try {
@@ -139,8 +167,13 @@ router.get('/tags', auth, async (req, res) => {
             params: payload,
             headers: {'user-agent': 'q1ra'}
         })
-        //console.log(response.data.toptags)
-        const tags = response.data.toptags.tag.map((tag) => tag.name)
+        console.log(response.data.toptags)
+        const tags = response.data.toptags.tag.map((tag) => {
+            return {
+                tag: tag.name,
+                count: tag.count
+            }
+        })
         res.send(tags)
     } catch(e) {
         res.status(404).send(e)
@@ -148,7 +181,7 @@ router.get('/tags', auth, async (req, res) => {
 })
 
 // get songs from tag
-router.get('/tags/:tag', auth, async (req, res) => {
+router.get('/tags/songs/:tag', auth, async (req, res) => {
     try {
         payload['limit'] = req.query.limit || DEFAULT_LIMIT
         payload['method'] = 'tag.getTopTracks'
@@ -159,7 +192,6 @@ router.get('/tags/:tag', auth, async (req, res) => {
             params: payload,
             headers: {'user-agent': 'q1ra'}
         })
-        console.log(response.data.tracks.track)
         const songs = response.data.tracks.track.map((tag) => {
             return {
                 name: tag.name,
@@ -167,6 +199,30 @@ router.get('/tags/:tag', auth, async (req, res) => {
             }
         })
         res.send(songs)
+    } catch(e) {
+        res.status(404).send(e)
+    }   
+})
+
+// get artists from tag
+router.get('/tags/artists/:tag', auth, async (req, res) => {
+    try {
+        payload['limit'] = req.query.limit || DEFAULT_LIMIT
+        payload['method'] = 'tag.getTopArtists'
+        payload['tag'] = req.params.tag
+        const response = await axios({
+            method: 'get',
+            url: URL,
+            params: payload,
+            headers: {'user-agent': 'q1ra'}
+        })
+        console.log(response.data)
+        const artists = response.data.topartists.artist.map((tag) => {
+            return {
+                artist: tag.name,
+            }
+        })
+        res.send(artists)
     } catch(e) {
         res.status(404).send(e)
     }   

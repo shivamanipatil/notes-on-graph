@@ -15,14 +15,16 @@ const Welcome = () => {
         setItems(data);
     };
     return(
+    <div className={styles.container}>
+    <h1 className={styles.fontClassh1}>Tops tags in world</h1>
       <div className={styles.divClass}>
-        <h1 className={styles.fontClassh1}>Tops tags in world</h1>
         {items.map(item => (
             <h3 className={styles.fontClassh3}>
-                <Link to={`/songs/${item}`} style={{'text-decoration': 'none'}}>{item}</Link>
+                <Link to={`/songs/${item.tag}`} style={{'text-decoration': 'none'}}>{item.tag}</Link>
             </h3>
         )) }
       </div>
+    </div>
     );
 }
 

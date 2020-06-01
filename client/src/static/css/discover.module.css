@@ -1,35 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+.container {
+    padding-top: 3vh;
+    padding-left: 3vh;
+    font-family: "Roboto", sans-serif;
+}
+
 .divClass {
     background-color: white;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    overflow:hidden;
-    padding: 5vw;
     font-family: "Roboto", sans-serif;
+    columns: auto 2;
 }
 .fontClassh1 {
     font-weight: 400;
-    font-size: 4vw;
-    margin: 3vh;   
+    font-size: 3vw;
+    margin: 3vh;
     font-family: "Roboto", sans-serif;
+    position: relative;
+    margin-bottom: 0.5vh;
+    left: 30%;   
 }
 
 .like {
     float: right;   
 }
 
+.subHeading {
+    font-weight: 300;
+    margin-left: 3vh;
+    font-size: 2.5vh;
+    color: rgb(171, 167, 167);
+    position: relative;
+    margin-bottom: 6vh;
+    left: 36%;   
+} 
+
 .fontClassh3 {
     font-weight: 500;
     margin: 3vh;
     font-size: 3vh;
-    width: 20vw;
+    width: 23vw;
     height: 10vh;
     padding: 2vh;
     text-decoration: none;
     border-radius: 4px;
     border: 1px solid rgb(171, 167, 167); 
-    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);   
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
 
 .spanClass {

@@ -1,0 +1,14 @@
+.container {
+    padding-top: 13vh;
+    padding-left: 10vh;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pText {
+    margin-top: 5px;
+    background-color:red;
+    transform:rotate(90deg);
+}

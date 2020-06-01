@@ -1,10 +1,10 @@
 import axios from 'axios';
 import {getJWT} from '../helpers/getJwt';
 
-const songsFromTag = async (tag) => {
+const artistsFromTag = async (tag) => {
     const res = await axios({
         method: 'GET',
-        url: `/tags/songs/${tag}`,
+        url: `/tags/artists/${tag}`,
         headers: {
             'Authorization': "Bearer " + getJWT()
         }
@@ -16,4 +16,4 @@ const songsFromTag = async (tag) => {
     }
 }
 
-export default songsFromTag;
+export default artistsFromTag;
