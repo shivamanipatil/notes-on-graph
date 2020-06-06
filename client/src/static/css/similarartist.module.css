@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+.divClass {
+    padding: 5vw;
+    font-family: "Roboto", sans-serif;
+}
+
+.fontClassh3 {
+    font-weight: 300;
+    margin: 3vh;
+    font-size: 3vh;
+    width: 20vw;
+    height: 7vh;
+    padding: 2vh;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid rgb(171, 167, 167); 
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);   
+}
+
+body {
+    overflow-y: auto;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+  }

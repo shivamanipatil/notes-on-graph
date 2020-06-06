@@ -20,7 +20,7 @@ router.get('/me/discoverSongs', auth, async (req, res) => {
             payload['method'] = 'track.getSimilar'
             payload['artist'] = song.artist
             payload['track'] = song.track
-            payload['limit'] = 5
+            payload['limit'] = 2
             const response = await axios({
                 method: 'get',
                 url: URL,
@@ -53,7 +53,7 @@ router.get('/recommend/artists', auth, async (req, res) => {
         if(!req.query.artist) {
             throw new Error ("Please provide artist name.")
         }
-            
+        
         payload['artist'] = req.query.artist
         payload['method'] = 'artist.getSimilar'
         payload['limit'] = req.query.limit? req.query.limit: DEFAULT_LIMIT
@@ -63,7 +63,10 @@ router.get('/recommend/artists', auth, async (req, res) => {
             params: payload,
             headers: {'user-agent': 'q1ra'}
         })
-        res.send(response.data.similarartists.artist.map((artist) => artist.name))
+        res.send(response.data.similarartists.artist.map((artist) => {
+            console.log(artist)
+            return artist.name;
+        }))
     } catch(e) {
         res.status(400).send(e)
     }

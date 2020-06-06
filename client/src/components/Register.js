@@ -4,8 +4,9 @@ import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 import styles from '../static/css/login.module.css';
 
-const Login = (props) => {
+const Register = (props) => {
   
+  const [Name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
@@ -13,36 +14,39 @@ const Login = (props) => {
     const target = event.target;
     const name = target.name;
     const value = target.value;
-    
+    console.log(event.target.name);
     if(name === "email") {
       setEmail(value);
-    } else {
+    } else if (name === "password") {
       setPassword(value);
+    } else {
+      setName(value);
     }
-    console.log(email, password)
+    console.log(Name, email, password)
   }
 
   const submit = async (event) => {
     event.preventDefault();
     const payload = {
-        email: email,
-        password: password
+        name: Name,
+        email,
+        password
     }
     try {
       const res = await axios({
         method: 'POST',
-        url: '/users/login',
+        url: '/users',
         data: payload
       });
       console.log(res)
-      if(res.status === 200) {
+      if(res.status === 201) {
           localStorage.setItem('userInfo', res.data.token.replace('"', ""));
           props.history.push('/profile');
       }
     } catch(error) {
       //axios thing need throws error for 400 status code 
-      props.history.push('/Login');
-      alert('Incorrect login details!')
+      props.history.push('/Register');
+      alert('Please try again')
     }
   }
   
@@ -50,6 +54,15 @@ const Login = (props) => {
       <div className={styles.login_page}>
         <div className={styles.form}>
         <form onSubmit={submit}>
+        <div className="form-input">
+            <input 
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={Name}
+              onChange={handleChange}
+            />
+          </div>
           <div className="form-input">
             <input 
               type="text"
@@ -68,11 +81,11 @@ const Login = (props) => {
               onChange={handleChange}
             />
           </div>
-          <button>Log in</button>
+          <button>Register</button>
         </form>
         </div>
       </div>
     );
 }
 
-export default withRouter(Login);
+export default withRouter(Register);

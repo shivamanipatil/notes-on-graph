@@ -5,6 +5,7 @@ const auth = require('../middleware/auth')
 
 //read profile
 router.get('/users/me', auth, async (req, res) => {
+    console.log(req.user)
     res.json(req.user)    
 })
 

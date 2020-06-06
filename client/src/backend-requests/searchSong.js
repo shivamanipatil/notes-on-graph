@@ -1,13 +1,18 @@
 import axios from 'axios';
 import {getJWT} from '../helpers/getJwt';
 
-const songsFromTag = async (tag) => {
+const searchSong = async (track, limit) => {
+    const payload = {
+        track,
+        limit
+    }
     const res = await axios({
         method: 'GET',
-        url: `/tags/songs/${tag}`,
+        url: '/music/search',
+        params: payload,
         headers: {
             'Authorization': "Bearer " + getJWT()
-        }
+        },
     });
     if(res.status === 200) {
         return res.data
@@ -16,4 +21,4 @@ const songsFromTag = async (tag) => {
     }
 }
 
-export default songsFromTag;
+export default searchSong;

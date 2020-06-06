@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import getTopTags from '../backend-requests/getTopTags';
 import {Link} from 'react-router-dom';
+import styles from '../static/css/home.module.css';
 
 const Welcome = () => {
     
@@ -14,14 +15,16 @@ const Welcome = () => {
         setItems(data);
     };
     return(
-      <div>
-        <h1>Tops tags in world</h1>
+    <div className={styles.container}>
+    <h1 className={styles.fontClassh1}>Tops tags in world</h1>
+      <div className={styles.divClass}>
         {items.map(item => (
-            <h3>
-                <Link to={`/songs/${item}`}>{item}</Link>
+            <h3 className={styles.fontClassh3}>
+                <Link to={`/songs/${item.tag}`} className={styles.link}>{item.tag}</Link>
             </h3>
         )) }
       </div>
+    </div>
     );
 }
 

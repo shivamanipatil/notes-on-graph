@@ -41,9 +41,10 @@ nav{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 10vh;
-  background: rgb(77, 79, 212);
+  min-height: 7vh;
+  background: red;
   color: white;
+  font-size: 3vh;
 }
 
 .nav-links{

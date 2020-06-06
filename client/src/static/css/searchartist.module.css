@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+.divClass {
+    padding: 6vw;
+    padding-left: 30vw;
+    font-family: "Roboto", sans-serif;
+}
+
+.subHeading {
+    font-size: 6vh;
+    margin: 4vh;
+    margin-left: 7vw;
+}
+
+.fontClassh3 {
+    font-weight: 300;
+    margin: 3vh;
+    font-size: 3vh;
+    width: 30vw;
+    height: 7vh;
+    padding: 2vh;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid rgb(171, 167, 167); 
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);   
+}
+
+.like {
+    float: right;   
+    cursor: pointer;
+}
+

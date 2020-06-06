@@ -1,12 +1,27 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {withRouter} from 'react-router-dom';
+import styles from '../static/css/welcome.module.css';
+import {getJWT} from '../helpers/getJwt';
 
 const Welcome = (props) => {
+    const handleLogin = () => {
+        const jwt = getJWT();
+        if(!jwt) {
+            props.history.push('/login');
+            return;
+        } else {
+            props.history.push('/home');
+        }
+    }
     return(
-        <div>
-            <h1>Welcome Home</h1>
-            <h2>Welcome to notes on graph</h2>
-            <button onClick={() => props.history.push('/login')}>Login</button>
+        <div className={styles.divClass}>
+            <h1 className={styles.heading}>NOTES ON GRAPH</h1>
+            <button className={styles.button} onClick={() => handleLogin()}>
+                <span>Login</span>
+            </button><br/>
+            <button className={styles.button} onClick={() => props.history.push('/register')}>
+                <span>Register</span>
+            </button>
         </div>  
     );    
 };
