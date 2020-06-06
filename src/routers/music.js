@@ -94,8 +94,13 @@ router.post('/music/like/track', auth, async (req, res) => {
         if(tracks.len == 0) {
             throw new Error("No tracks found.")
         }
-        req.user.favouriteSongs.push(tracks[0])
-        await req.user.save()
+        const status = req.user.favouriteSongs.some((song) => {
+            return (song.artist === tracks[0].artist && song.track === tracks[0].track);
+        });
+        if (!status){
+            req.user.favouriteSongs.push(tracks[0])
+            await req.user.save()
+        }
         res.send()
     } catch(e) {
         res.status(404).send(e)
@@ -127,8 +132,13 @@ router.post('/music/like/artist', auth, async (req, res) => {
         if(artists.len == 0) {
             throw new Error("No artists found.")
         }
-        req.user.favouriteArtists.push(artists[0])
-        await req.user.save()
+        const status = req.user.favouriteArtists.some((artist) => {
+            return (artist.artist === artist[0].artist)
+        });
+        if (!status) {
+            req.user.favouriteArtists.push(artists[0])
+            await req.user.save() 
+        }
         res.send()
     } catch(e) {
         res.status(404).send(e)

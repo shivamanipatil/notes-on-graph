@@ -31,8 +31,8 @@ const SongsFromTag = ({match}) => {
     };
     return(
       <div className={styles.divClass}>
-        <div lassName={styles.ol}>
-            <h1 className={styles.fontClassh1}>Artists & Songs for {match.params.tag}</h1>
+        <div lassName={styles.col}>
+            <h1 className={styles.fontClassh1}>{match.params.tag}</h1>
             <h3 className={styles.subHeading}>- Click <span>&#128156;</span> to add to favourites</h3>            
         </div>
         <div lassName={styles.col}>

@@ -42,7 +42,7 @@ function Profile() {
             <div className={styles.heading}> 
                 <h1 className={styles.fontClassh1}>Hi {user.profile.name}</h1>
                 <h1 className={styles.fontClass}>{user.profile.email}</h1>
-                <h3 className={styles.subHeading}> - Click <span>&#128156;</span> to unlike</h3>
+                <h3 className={styles.subHeading}> - Click <span>&#128159;</span> to unlike</h3>
             </div>
             <div className={styles.favs}>
                 <div className={styles.favRow}>
@@ -51,7 +51,7 @@ function Profile() {
                         user.profile.favouriteArtists.map((artist) => (
                         <h3 className={styles.fontClassh3} key={artist._id}>
                             {artist.artist} 
-                            <span onClick={(e) => {unlikeartist(artist._id)}} className={styles.unlike}>&#128156;</span>
+                            <span onClick={(e) => {unlikeartist(artist._id)}} className={styles.unlike}>&#128159;</span>
                         </h3>
                     ))
                     :null
@@ -63,7 +63,7 @@ function Profile() {
                         user.profile.favouriteSongs.map((song) => (
                         <h3 className={styles.fontClassh3}>
                             {song.track} By {song.artist} 
-                            <span onClick={() => {unlikesong(song._id)}} className={styles.unlike}>&#128156;</span>
+                            <span onClick={() => {unlikesong(song._id)}} className={styles.unlike}>&#128159;</span>
                         </h3>
                     ))
                     :null

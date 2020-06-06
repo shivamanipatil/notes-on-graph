@@ -14,8 +14,8 @@ function Nav() {
                 <Link className={styles.navStyle} to='/discover'>
                     <li>Discover</li>
                 </Link>
-                <Link className={styles.navStyle} to='/similar/artist'>
-                    <li>Similar-Artist</li>
+                <Link className={styles.navStyle} to='/search'>
+                    <li>Search</li>
                 </Link>
                 <Link className={styles.navStyle} to='/profile'>
                     <li>Profile</li>

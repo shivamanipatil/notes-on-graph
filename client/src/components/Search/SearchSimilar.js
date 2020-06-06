@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { withRouter} from 'react-router-dom';
-import styles from '../static/css/search.module.css';
+import styles from '../../static/css/search.module.css';
 
-function SearchArtist(props) {
+function SearchSimilarArtist(props) {
     const [artist, setArtist] = useState('');
     const [limit, setLimit] = useState(3);
     return(
@@ -33,4 +33,4 @@ function SearchArtist(props) {
     );
 }
 
-export default withRouter(SearchArtist);
+export default withRouter(SearchSimilarArtist);

@@ -41,7 +41,7 @@ nav{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 10vh;
+  min-height: 7vh;
   background: red;
   color: white;
   font-size: 3vh;

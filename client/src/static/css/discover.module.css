@@ -6,9 +6,9 @@
 }
 
 .divClass {
-    background-color: white;
     font-family: "Roboto", sans-serif;
-    columns: auto 2;
+    padding: 5vh;
+    columns: 2 auto;
 }
 .fontClassh1 {
     font-weight: 400;
@@ -21,7 +21,7 @@
 }
 
 .like {
-    float: right;   
+    margin-right: 2vw;
 }
 
 .subHeading {

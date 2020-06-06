@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import similarArtist from '../backend-requests/similarArtists';
+import similarArtist from '../../backend-requests/similarArtists';
 import queryString from 'query-string';
-import styles from '../static/css/similarartist.module.css';
+import styles from '../../static/css/similarartist.module.css';
 
 function Tree({ items, depth = 0 }) {
   // our base case, if we have no items, render nothing.

@@ -2,7 +2,8 @@
 .heading {
     font-size: 20vh;
     color: white; 
-    font-family: 'Roboto', sans-serif;  
+    font-family: 'Roboto', sans-serif; 
+    margin: 4vh; 
 }
 
 .button {
@@ -13,10 +14,11 @@
     text-align: center;
     font-size: 25px;
     padding: 10px;
-    width: 150px;
+    width: 10vw;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px;
+    margin: 9vh;
+    margin-bottom: 1vh; 
     text-decoration: none;
 }
   

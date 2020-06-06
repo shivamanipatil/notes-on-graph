@@ -20,7 +20,7 @@ const Welcome = () => {
       <div className={styles.divClass}>
         {items.map(item => (
             <h3 className={styles.fontClassh3}>
-                <Link to={`/songs/${item.tag}`} style={{'text-decoration': 'none'}}>{item.tag}</Link>
+                <Link to={`/songs/${item.tag}`} className={styles.link}>{item.tag}</Link>
             </h3>
         )) }
       </div>
