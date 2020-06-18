@@ -8,7 +8,7 @@ function SearchSimilarArtist(props) {
     return(
       <div className={styles.divClass}>
         <h1 className={styles.fontClassh1}>Search similar artists</h1>
-        <form onSubmit={() => {props.history.push(`/artist?name=${artist}&limit=${limit}`)}}>
+        <form onSubmit={() => {props.history.push(`/test?name=${artist}&limit=${limit}`)}}>
           <div className="form-input">
             <input 
               type="text"

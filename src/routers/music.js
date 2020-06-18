@@ -45,6 +45,7 @@ router.get('/artist/search', auth, async (req, res) => {
         if(!req.query.artist) {
             throw new Error ("Please provide artist.")
         }
+        console.log(payload['artist'] )
         payload['artist'] = req.query.artist
         payload['limit'] = req.query.limit || DEFAULT_LIMIT
         payload['method'] = 'artist.search'
@@ -128,12 +129,12 @@ router.post('/music/like/artist', auth, async (req, res) => {
                 'artist': artist.name,
             }
         })
-        
         if(artists.len == 0) {
             throw new Error("No artists found.")
         }
         const status = req.user.favouriteArtists.some((artist) => {
-            return (artist.artist === artist[0].artist)
+            console.log(artist.artist)
+            return (artist.artist === artists[0].artist)
         });
         if (!status) {
             req.user.favouriteArtists.push(artists[0])

@@ -12,6 +12,7 @@ const likeArtist = async (artist) => {
             'Authorization': "Bearer "+ getJWT()
     }});
     if(res.status === 200) {
+        console.log(res)
         return res.data
     } else {
         throw new Error("Incorrect token")
