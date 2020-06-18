@@ -1,3 +1,4 @@
-/config
+config/
+.vscode
 /src/test.js
 /node_modules
