@@ -1,31 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 .container {
     padding-top: 3vh;
     padding-left: 3vh;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Staatliches', cursive;
+    background-color: #0B0C10;
 }
 
 .divClass {
-    background-color: white;
     padding: 5vw;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Staatliches', cursive;
     columns: 2 auto;
 }
 
 .link {
     text-decoration: none;
-    color: #0A4555;
+    color: #65FCF0;
 }
 .fontClassh1 {
     font-weight: 400;
     font-size: 3vw;
     position: relative;
-    margin: 3vh;
+    margin: 4vh;
+    margin-left: 12vh;
     margin-bottom: 0.5vh;
-    left: 30%;   
+    color: #65FCF0;
 }
 
 .fontClassh3 {
+    background-color: #202833;
     font-weight: 300;
     margin: 3vh;
     font-size: 3vh;

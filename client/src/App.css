@@ -39,12 +39,13 @@
 
 nav{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   min-height: 7vh;
-  background: red;
-  color: white;
+  background: #202833 ;
+  color: #65FCF0;
   font-size: 3vh;
+  padding-left: 3vw;
 }
 
 .nav-links{

@@ -14,6 +14,10 @@ const URL = 'http://ws.audioscrobbler.com/2.0/'
 
 //search for a track 
 router.get('/music/search', auth, async (req, res) => {
+    let payload = {
+        'api_key': process.env.LASTFM_API_KEY,
+        'format': 'json',
+    }
     try {
         if(!req.query.track) {
             throw new Error ("Please provide track.")
@@ -41,6 +45,10 @@ router.get('/music/search', auth, async (req, res) => {
 
 //search for a artist 
 router.get('/artist/search', auth, async (req, res) => {
+    let payload = {
+        'api_key': process.env.LASTFM_API_KEY,
+        'format': 'json',
+    }
     try {
         if(!req.query.artist) {
             throw new Error ("Please provide artist.")

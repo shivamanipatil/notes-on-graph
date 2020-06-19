@@ -14,6 +14,7 @@ const Song = ({location}) => {
   const fetchItems = async () => {
       const values = queryString.parse(location.search);
       const data = await searchSong(values.name, values.limit);
+      console.log(data)
       const newData = data.map((item) => {
         return {
           artist: item.artist,
@@ -36,7 +37,7 @@ const Song = ({location}) => {
         <h3 className={styles.subHeading}>Search results</h3>
         {items.map(item => (
             <h3 className={styles.fontClassh3}>
-            {item.track} <span onClick={(e) => {likesong(item.track)}}  className={styles.like}>&#128156;</span><br/> - <span className={styles.spanClass}>{item.artist}</span>
+            {item.track} <span onClick={(e) => {likesong(item.track)}}  className={styles.like}>&#11088;</span><br/> - <span className={styles.spanClass}>{item.artist}</span>
             </h3>
         )) }
     </div> 

@@ -16,7 +16,7 @@ const Welcome = () => {
     };
     return(
     <div className={styles.container}>
-    <h1 className={styles.fontClassh1}>Tops tags in world</h1>
+    <h1 className={styles.fontClassh1}>Top tags in the world</h1>
       <div className={styles.divClass}>
         {items.map(item => (
             <h3 className={styles.fontClassh3}>

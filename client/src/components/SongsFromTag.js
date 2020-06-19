@@ -3,6 +3,7 @@ import songsFromTag from '../backend-requests/songFromTags';
 import artistsFromTag from '../backend-requests/artistsfromTags';
 import styles from '../static/css/songtag.module.css';
 import likeSong from '../backend-requests/likesong';
+import likeArtist from '../backend-requests/likeartist';
 
 const SongsFromTag = ({match}) => {
     useEffect(() => {
@@ -29,18 +30,28 @@ const SongsFromTag = ({match}) => {
             console.log('Could not like');   
         }
     };
+    const likeartist = (name) => {
+        try {
+            console.log(name);
+            likeArtist(name);
+            alert('Liked')
+        } catch(e) {
+            console.log('Could not like');   
+        }
+    };
+    
     return(
       <div className={styles.divClass}>
         <div lassName={styles.col}>
             <h1 className={styles.fontClassh1}>{match.params.tag}</h1>
-            <h3 className={styles.subHeading}>- Click <span>&#128156;</span> to add to favourites</h3>            
+            <h3 className={styles.subHeading}>- Click <span>&#11088;</span> to add to favourites</h3>            
         </div>
         <div lassName={styles.col}>
             <div className={styles.subcol}>
                 <h3 className={styles.subHeading}>Songs</h3>
                 {songs.map(item => (
                     <h3 className={styles.fontClassh3}>
-                        {item.name} <span onClick={(e) => {likesong(item.name)}}  className={styles.like}>&#128156;</span><br/> - <span className={styles.spanClass}>{item.artist}</span>
+                        {item.name} <span onClick={(e) => {likesong(item.name)}}  className={styles.like}>&#11088;</span><br/> - <span className={styles.spanClass}>{item.artist}</span>
                     </h3>
                 )) }
             </div>
@@ -48,7 +59,7 @@ const SongsFromTag = ({match}) => {
                 <h3 className={styles.subHeading}>Artists</h3>
                 {artists.map(item => (
                     <h3 className={styles.fontClassh3}>
-                        {item.artist} <span onClick={(e) => {likesong(item.name)}}  className={styles.like}>&#128156;</span><br/> - <span className={styles.spanClass}>{item.artist}</span>
+                        {item.artist} <span onClick={(e) => {likeartist(item.artist)}}  className={styles.like}>&#11088;</span><br/>
                     </h3>
                 )) }
             </div>

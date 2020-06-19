@@ -6,7 +6,7 @@ import styles from '../static/css/nav.module.css';
 function Nav() {
     return(
         <nav>
-            <h3 className={styles.classH3}>Notes On Graph</h3>
+            <h3 className={styles.classH3}>Notes On a Graph</h3>
             <ul className="nav-links">
                 <Link className={styles.navStyle} to='/home'>
                     <li>Home</li>

@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 .container {
+    background-color: #0B0C10;
+    height: 100%;
     padding-top: 3vh;
     padding-left: 3vh;
     font-family: "Roboto", sans-serif;
@@ -23,23 +25,28 @@
 }
 
 .button {
-    background-color: white;
+    background-color: #202833;
     border-radius: 4px;
-    border: 0.16em solid red;
-    font-family: "Roboto", sans-serif;
-    color: red;
+    border: 0.16em solid grey;
+    color: #65FCF0;
     text-align: center;
-    font-size: 30px;
-    font-weight: 100;
-    width: 13vw;
+    font-size: 25px;
+    font-family: 'Staatliches', cursive;
+    font-weight: 300;
+    width: 11vw;
     height: 10vh;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 8vh;
-    margin-left: 20vh; 
+    margin: 10px;
+    margin-left: 10vw;
+    margin-top: 5vh;
     text-decoration: none; 
 }
 
-* {
-    box-sizing: border-box;
-  }
+.buttonContainer {
+    margin-top: 10vh;   
+}
+
+img {
+    float: left;
+}

@@ -36,7 +36,7 @@ const Artist = ({location}) => {
         <h3 className={styles.subHeading}>Search results</h3>
         {items.map(item => (
             <h3 className={styles.fontClassh3}>
-                {item.artist.artist} <span onClick={(e) => {likeartist(item.artist.artist)}} className={styles.like}>&#128156;</span>
+                {item.artist.artist} <span onClick={(e) => {likeartist(item.artist.artist)}} className={styles.like}>&#11088;</span>
             </h3>
         )) }
     </div> 

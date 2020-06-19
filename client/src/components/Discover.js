@@ -28,11 +28,11 @@ function Discover() {
     return(
     <div className={styles.container}>
         <h1 className={styles.fontClassh1}>Songs found for you</h1>
-        <h3 className={styles.subHeading}>Click <span>&#128156;</span> to add to favourites</h3>
+        <h3 className={styles.subHeading}>Click <span>&#11088;</span> to add to favourites</h3>
       <div className={styles.divClass}>
         {items.map(item => (
             <h3 className={styles.fontClassh3}>
-                <span onClick={(e) => {likesong(item.name)}}  className={styles.like}>&#128156;</span>
+                <span onClick={(e) => {likesong(item.name)}}  className={styles.like}>&#11088;</span>
                 {item.name}
             </h3>
         )) }

@@ -3,6 +3,7 @@
     padding-top: 3vh;
     padding-left: 3vh;
     font-family: "Roboto", sans-serif;
+    background-color: #0B0C10;
 }
 
 .divClass {
@@ -14,10 +15,10 @@
     font-weight: 400;
     font-size: 3vw;
     margin: 3vh;
-    font-family: "Roboto", sans-serif;
-    position: relative;
+    font-family: 'Staatliches', cursive;
     margin-bottom: 0.5vh;
-    left: 30%;   
+    margin-left: 4vw;  
+    color: #65FCF0;
 }
 
 .like {
@@ -29,12 +30,13 @@
     margin-left: 3vh;
     font-size: 2.5vh;
     color: rgb(171, 167, 167);
-    position: relative;
     margin-bottom: 6vh;
-    left: 36%;   
+    margin-left: 4vw;
 } 
 
 .fontClassh3 {
+    color: #65FCF0;
+    background-color: #202833;
     font-weight: 500;
     margin: 3vh;
     font-size: 3vh;

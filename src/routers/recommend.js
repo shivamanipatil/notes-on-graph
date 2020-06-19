@@ -16,11 +16,13 @@ const URL = 'http://ws.audioscrobbler.com/2.0/'
 router.get('/me/discoverSongs', auth, async (req, res) => {
     try {
         const tracks = []
-        for(const song of req.user.favouriteSongs) {
+        const n = req.user.favouriteSongs.length > 2? 2: req.user.favouriteSongs.length
+        const favSongs = req.user.favouriteSongs.slice(0, n)
+        for(const song of favSongs) {
             payload['method'] = 'track.getSimilar'
             payload['artist'] = song.artist
             payload['track'] = song.track
-            payload['limit'] = 2
+            payload['limit'] = 4
             const response = await axios({
                 method: 'get',
                 url: URL,
@@ -89,7 +91,13 @@ router.get('/recommend/tracks', auth, async (req, res) => {
             params: payload,
             headers: {'user-agent': 'q1ra'}
         })
-        res.send(response.data.similartracks.track.map((track) => track.name))
+        console.log(response.data.similartracks.track)
+        res.send(response.data.similartracks.track.map((track) => {
+            return {
+                track: track.name,
+                artist: track.artist.name
+            }
+        }))
     } catch(e) {
         res.status(400).send(e)
     }

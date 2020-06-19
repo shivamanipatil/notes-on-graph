@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 .navStyle {
-    color: white;
+    color: #C5C6C8;
     text-decoration: none;
+    font-family: 'Staatliches', cursive;
 }
 
 .classH3 {
+    font-family: 'Staatliches', cursive;
     font-weight: 100;
-    font-size: 5vh;
+    font-size: 8vh;
     float: left;
 }

@@ -6,14 +6,14 @@ const SearchHome = () => {
     const history = useHistory();
     return (
         <div className={styles.container}>
-        <div className={styles.divClass}>
-            <h1 className={styles.fontClassh1}>
-                Select an option
-            </h1>
-            <button className={styles.button} onClick={() => history.push("/search/artist")}>Search Artist</button>
-            <button className={styles.button} onClick={() => history.push("/search/song")}>Search Songs</button>
-            <button className={styles.button} onClick={() => history.push("/similar/artist")}>Find Similar Artist</button> 
-        </div>
+            <img src="https://source.unsplash.com/1100x900/?music,songs,notes,sound"></img>
+            <div className={styles.buttonContainer}>
+                <button className={styles.button} onClick={() => history.push("/search/artist")}>Search Artist</button><br/>
+                <button className={styles.button} onClick={() => history.push("/search/song")}>Search Songs</button><br/>
+                <button className={styles.button} onClick={() => history.push("/similar/artist")}>Find Similar Artists</button><br/>
+                <button className={styles.button} onClick={() => history.push("/similar/song")}>Find Similar Songs</button><br/> 
+            </div>
+            
         </div>
     )
 }

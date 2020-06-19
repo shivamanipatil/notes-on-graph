@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
 .heading {
     font-size: 20vh;
-    color: white; 
-    font-family: 'Roboto', sans-serif; 
+    color: #65FCF0;
+    font-family: 'Staatliches', cursive;
     margin: 4vh; 
 }
 
 .button {
     border-radius: 0px;
-    background-color: red;
+    background-color: #202833;
     border: 0.16em solid #FFFFFF;
-    color: white;
+    color: #65FCF0;;
     text-align: center;
     font-size: 25px;
     padding: 10px;
@@ -48,7 +48,7 @@
 }
 
 .divClass {
-    background-color: red;
+    background-color: #202833;
     padding: 4%;
     height: 100vh;
     width: 100%;
@@ -63,5 +63,6 @@
 body{
     overflow-x:hidden;
     overflow-y:hidden;
+    background-color: #0B0C10;
 }
    

@@ -2,13 +2,14 @@ import React, {useState} from 'react';
 import { withRouter} from 'react-router-dom';
 import styles from '../../static/css/search.module.css';
 
-function SearchSong(props) {
+function SearchSimilarSong(props) {
     const [song, setSong] = useState('');
+    const [artist, setArtist] = useState('');
     const [limit, setLimit] = useState(3);
     return(
       <div className={styles.divClass}>
-        <h1 className={styles.fontClassh1}>Search songs</h1>
-        <form onSubmit={() => {props.history.push(`/songSearch?name=${song}&limit=${limit}`)}}>
+        <h1 className={styles.fontClassh1}>Search similar songs</h1>
+        <form onSubmit={() => {props.history.push(`/testSong?name=${song}&artist=${artist}&limit=${limit}`)}}>
           <div className="form-input">
             <input 
               type="text"
@@ -16,7 +17,15 @@ function SearchSong(props) {
               placeholder="Song"
               value={song}
               className={styles.inputArtist}
-              onChange={(e) => {setSong(e.target.value);console.log(song)}}
+              onChange={(e) => {setSong(e.target.value);console.log(artist)}}
+            />
+            <input 
+              type="text"
+              name="artist"
+              placeholder="Artist"
+              value={artist}
+              className={styles.inputArtist}
+              onChange={(e) => {setArtist(e.target.value);console.log(artist)}}
             />
             <input 
               type="number"
@@ -33,4 +42,4 @@ function SearchSong(props) {
     );
 }
 
-export default withRouter(SearchSong);
+export default withRouter(SearchSimilarSong);
