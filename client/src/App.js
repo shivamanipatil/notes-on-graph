@@ -20,6 +20,8 @@ import Discover from './components/Discover';
 import Graph from './components/chart/graph';
 import SearchHome from './components/Search/SearchHome';
 import GraphDisplay from './components/Search/grapphDisplay';
+import GraphDisplaySong from './components/Search/grapphDisplaySong';
+import SearchSimilarSong from './components/Search/SearchSimilarSong';
 
 class App extends React.Component {
   constructor() {
@@ -46,11 +48,13 @@ class App extends React.Component {
               <Route path="/search/artist" exact component={SearchArtist} />
               <Route path="/search/song" exact component={SearchSong} />
               <Route path="/similar/artist" exact component={SearchSimilar} />
+              <Route path="/similar/song" exact component={SearchSimilarSong} />
               <Route path="/songs/:tag" exact component={SongsFromTag} />
               <Route path="/artist" exact component={SimilarArtist} />
               <Route path="/artistSearch" exact component={Artist} />
               <Route path="/songSearch" exact component={Song} />
               <Route path="/test" exact component={GraphDisplay} />
+              <Route path="/testSong" exact component={GraphDisplaySong} />
             </AuthComponent>
           </Switch>
       </BrowserRouter>

@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 .divClass {
-    background-color: white;
+    background-color: #0B0C10;
     padding: 2vw;
     font-family: "Roboto", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 .fontClassh1 {
     font-weight: 400;
     font-size: 3.5vw;
     margin-bottom: 1vh;  
+    color: #65FCF0;
+    text-transform: uppercase;
+    font-family: 'Staatliches', cursive;
 }
 
 .col {
@@ -30,6 +34,8 @@
 }
 
 .fontClassh3 {
+    background-color: #202833;
+    color: #65FCF0;
     font-weight: 500;
     margin: 3vh;
     font-size: 3vh;

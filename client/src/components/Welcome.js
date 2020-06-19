@@ -15,7 +15,7 @@ const Welcome = (props) => {
     }
     return(
         <div className={styles.divClass}>
-            <h1 className={styles.heading}>NOTES ON GRAPH</h1>
+            <h1 className={styles.heading}>NOTES ON A GRAPH</h1>
             <button className={styles.button} onClick={() => handleLogin()}>
                 <span>Login</span>
             </button><br/>

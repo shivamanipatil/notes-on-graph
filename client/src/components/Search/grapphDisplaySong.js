@@ -1,6 +1,6 @@
 import Graph from "react-graph-vis";
 import React, {useState, useEffect} from 'react';
-import similarArtist from '../../backend-requests/similarArtists';
+import similarSong from '../../backend-requests/similarSongs';
 import queryString from 'query-string';
 import styles from '../../static/css/graphDis.module.css';
 
@@ -16,20 +16,16 @@ const options = {
     color: "#FFFFFF"
   },
   nodes: {
-    color: {
-      border: "#65FCF0",
-      background: "#202833"
-    },
     font: {
-      color: "#65FCF0",
-      size: 24,
-    },
-    borderWidth: 2,
-    borderWidthSelected: 4
+      color: "#65FCF0"
+    }
+    
   }
 };
 
-function GraphDisplay({location}) {
+const artists = []
+
+function GraphDisplaySong({location}) {
   const events = {
     select: function(event) {
       var { nodes, edges } = event;
@@ -62,16 +58,19 @@ function GraphDisplay({location}) {
   
   const fetchItems = async () => {
       const values = queryString.parse(location.search);
-      const data = await similarArtist(values.name, values.limit);
+      const data = await similarSong(values.name, values.artist, values.limit);
       const graphTest = items
       const num = items.nodes.length
       const color = colors[ Math.floor(Math.random() * colors.length)]
+      console.log(data)
       data.forEach((item, index) => {
-        graphTest.nodes.push({id:index+num+1, label:item, color})
-        graphTest.edges.push({ from: 1, to: index+num+1})
+        artists.push({id:index+num+1, artist: item.artist})
+        graphTest.nodes.push({id:index+num+1, label:item.track, color})
+        graphTest.edges.push({ from: 1, to: index+num+1, length: ((Math.floor(Math.random() * (values.limit+1)))*17.5)})
       })
       const newObj = {...graphTest, cha1nged: 'dafsd'};
       setF(true);
+      console.log(artists)
       setItems(newObj)
   };
   
@@ -81,16 +80,26 @@ function GraphDisplay({location}) {
     })
     return artist.length > 0 ? artist[0].label : null
   }
+  
+  const getSongArtist = (artistIndex) => {
+    const artist = artists.filter((item) => {
+      return item.id === artistIndex
+    })
+    return artist.length > 0 ? artist[0].artist : null
+  }
   const onClickArtist = async (artistIndex) => {
-    const values = queryString.parse(location.search);
+    console.log(artistIndex)
     const artist = getArtist(artistIndex)
-    const data = await similarArtist(artist, values.limit)
+    const artistName = getSongArtist(artistIndex)
+    console.log(artist, artistName)
+    const data = await similarSong(artist,artistName, 3)
     const graphTest = items
     const num = items.nodes.length
     const color = colors[ Math.floor(Math.random() * colors.length)]
     data.forEach((item, index) => {
-      graphTest.nodes.push({id:index+1+num, label:item, color})
-      graphTest.edges.push({ from: artistIndex, to: index+1+num, length: ((Math.floor(Math.random() * (values.limit+1)))*17.5)})
+      artists.push({id:index+num+1, artist: item.artist})
+      graphTest.nodes.push({id:index+1+num, label:item.track, color})
+      graphTest.edges.push({ from: artistIndex, to: index+1+num })
     })
     const newObj = {...graphTest};
     console.log(Object.is(newObj, graphTest))
@@ -101,11 +110,11 @@ function GraphDisplay({location}) {
     return(
         <div className={styles.graph}>
         {finished ?
-          <Graph key={newKey} graph={items} options={options} events={events} style={{ height: "900px" }} />
+          <Graph key={newKey} graph={items} options={options} events={events} style={{ height: "1100px" }} />
         :null
         }
         </div>
     );
 }
 
-export default GraphDisplay;
+export default GraphDisplaySong;
